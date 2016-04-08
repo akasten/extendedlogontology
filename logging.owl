@@ -1,0 +1,558 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/logging.owl#"
+     xml:base="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/logging.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl">
+        <rdfs:label>Extended Log Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://github.com/akasten/extendedlogontology</rdfs:seeAlso>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#time -->
+
+    <rdfs:Datatype rdf:about="&xsd;time"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#hasEntry -->
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#hasEntry">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogEntry"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#isEntryOf -->
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#isEntryOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogEntry"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+        <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#hasEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#bytes -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#bytes">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cDns -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cDns">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cIp -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cIp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cPort -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cPort">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cached -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#cached">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#count -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#count">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#summaryEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csBytes -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csBytes">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csCookie -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csCookie">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryHeaderProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csHost -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csHost">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryHeaderProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csMethod -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csMethod">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csReferer -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csReferer">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryHeaderProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUri -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUri">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUriQuery -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUriQuery">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUriStem -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUriStem">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUserAgent -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csUserAgent">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryHeaderProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csVersion -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#csVersion">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#date -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#date">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#interval -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#interval">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#summaryEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty">
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryHeaderProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryHeaderProperty">
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogEntry"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty">
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileDate -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileEndDate -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileEndDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileProperty">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileSoftware -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileSoftware">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileStartDate -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileStartDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileVersion -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileVersion">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logFileProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rDns -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rDns">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rIp -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rIp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rPort -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rPort">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rsBytes -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#rsBytes">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#sDns -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#sDns">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#sIp -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#sIp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#sPort -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#sPort">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntrySystemProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#scBytes -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#scBytes">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#scSetCookie -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#scSetCookie">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryHeaderProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#scStatus -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#scStatus">
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#srBytes -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#srBytes">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryCommunicationProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#summaryEntryProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#summaryEntryProperty">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#SummaryEntry"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#time -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#time">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;time"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#timeFrom -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#timeFrom">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;time"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#summaryEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#timeTaken -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#timeTaken">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#logEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#timeTo -->
+
+    <owl:DatatypeProperty rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#timeTo">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;time"/>
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#summaryEntryProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogEntry -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogEntry">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#isEntryOf"/>
+                <owl:onClass rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile"/>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogFile">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#hasEntry"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogEntry"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#SummaryEntry -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#SummaryEntry">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/akasten/extendedlogontology/master/ontologies/logging.owl#LogEntry"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
